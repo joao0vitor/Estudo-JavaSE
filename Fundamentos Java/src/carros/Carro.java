@@ -18,7 +18,9 @@ public class Carro {
 	}
 	// Atributos
 	int ano;
+	int chassi;
 	String cor;
+	String nome;
 
 	// Modelos
 		// void -> Método simples sem retorno
