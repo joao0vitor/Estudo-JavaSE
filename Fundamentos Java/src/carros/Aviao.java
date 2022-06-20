@@ -21,4 +21,8 @@ public class Aviao extends Carro {
 		void aterrizar() {
 			System.out.println("Avião aterrizado");
 		}
+		
+		void acelerar() {
+			System.out.println("Avião decolado");
+		}
 }

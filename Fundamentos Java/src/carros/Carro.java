@@ -3,6 +3,8 @@
  */
 package carros;
 
+import java.util.Random;
+
 /**
  * @author joao vitor
  *
@@ -13,8 +15,14 @@ public class Carro {
 	 * 
 	 */
 	public Carro() {
-		super();
-		System.out.println("===============================");
+		Random gerador = new Random();
+		String chassis = new String("0123456789ABCDEFGHIJKLMNOPQRSTUVYXWZ");
+		System.out.print("Chassis: * ");
+		for (int i = 0; i < 16; i++) {
+			char numeracao = (char) gerador.nextInt(chassis.length());
+		System.out.print(chassis.charAt(numeracao));
+		}
+		System.out.println(" *");
 	}
 	// Atributos
 	int ano;

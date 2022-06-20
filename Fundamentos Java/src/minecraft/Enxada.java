@@ -26,4 +26,9 @@ public class Enxada extends Bloco {
 	    		// Atenção
 	    		conquista = true;
 	    }
+	    
+	    // Polimorfismo (sobrescrito do método minarar)
+	    void minerar() {
+	    	System.out.println("Dano causado");
+	    }
 }

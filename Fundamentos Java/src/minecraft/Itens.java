@@ -35,6 +35,8 @@ public class Itens {
 			System.out.println("_____________________________________");
 		}
 
+		enxadaDiamante.minerar();
+		
 	}
 
 }
