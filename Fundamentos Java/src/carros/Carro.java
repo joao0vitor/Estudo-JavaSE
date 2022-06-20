@@ -15,6 +15,9 @@ public class Carro {
 	 * 
 	 */
 	public Carro() {
+		
+		// Construtor
+		
 		Random gerador = new Random();
 		String chassis = new String("0123456789ABCDEFGHIJKLMNOPQRSTUVYXWZ");
 		System.out.print("Chassis: * ");

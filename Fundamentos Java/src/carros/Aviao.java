@@ -4,7 +4,7 @@
 package carros;
 
 /**
- * @author joao.vssouza42
+ * @author joao vitor
  *
  */
 public class Aviao extends Carro {
@@ -13,7 +13,7 @@ public class Aviao extends Carro {
 	 *
 	 */
 	public Aviao() {
-		System.out.println("_____________________");
+		System.out.println("=================================");
 	}
 		// Atributos
 		double envergadura;
@@ -25,4 +25,12 @@ public class Aviao extends Carro {
 		void acelerar() {
 			System.out.println("Avião decolado");
 		}
+		void desligar() {
+			System.out.println("Avião desligado");
+		}
+		
+		void ligar() {
+			System.out.println("Avião ligado");
+		}
 }
+
