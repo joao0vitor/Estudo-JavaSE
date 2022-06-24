@@ -69,5 +69,42 @@ public class Conta {
 	protected void exibirSaldo() {
 		System.out.println("Saldo: R$ " + saldo);
 	}
-
+	
+	/*
+	 * Método simples com uma variavel local
+	 * @param valor
+	 */
+	protected void sacar(double valor) {
+		saldo -= valor;
+		System.out.println("Débito: R$" + valor);
+	}
+	/*
+	 * Método simples com uma variavel local
+	 * @param valor
+	 */
+	protected void depositar(double valor) {
+		saldo += valor;
+		System.out.println("Crédito: R$" + valor);
+	}
+	/**
+	 * Metodo simples com uma variavel local e um objeto que sera criado para indicar a conta de destino da transferencia
+	 * @param destino
+	 * @param valor
+	 */
+	protected void transferencia(Conta destino, double valor) {
+		this.sacar(valor);
+		destino.depositar(valor);
+		System.out.println("Transferencia: R$" + valor);
+	}
+	
+/**
+ * Método com retorno obrigatorio 
+ * @param cc1
+ * @param cc2
+ * @return
+ */
+		double soma (double cc1, double cc2) {
+		double total = cc1 + cc2; 
+		return total;
+	}
 }
