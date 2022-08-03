@@ -1,6 +1,9 @@
 package view;
 
 import javax.swing.border.EmptyBorder;
+
+import model.DAO;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -11,6 +14,9 @@ import javax.swing.JFrame;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
 
 public class Login extends JFrame {
 
@@ -42,6 +48,12 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				status();
+			}
+		});
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/logolojinha.png")));
 		setTitle("LhL cell - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,9 +84,36 @@ public class Login extends JFrame {
 		btnAcessar.setBounds(234, 177, 89, 23);
 		contentPane.add(btnAcessar);
 		
-		JLabel lblStatus = new JLabel("");
+		lblStatus = new JLabel("");
 		lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dboff.png")));
 		lblStatus.setBounds(10, 163, 48, 48);
 		contentPane.add(lblStatus);
 	}// fim do construtor
-}
+	
+	// Criação de um objeto para acessar a camada model
+	
+	DAO dao = new DAO();
+	private JLabel lblStatus;
+	
+	/**
+	 * Método para verificar o status do servidor
+	 */
+	private void status() {
+		try {
+			// Abrir a conexão
+			Connection con = dao.conectar();
+			if (con == null ) {
+				// Escolher a imagem dboff
+				lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dboff.png")));	
+			} else {
+				// Escolher a imagem dbon
+				lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dbon.png")));
+			}
+			// não esquecer de fechar a conxão
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+} // fim do código
