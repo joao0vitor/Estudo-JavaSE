@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Principal extends JFrame {
 
@@ -27,6 +28,12 @@ public class Principal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblData;
+	
+	// atribuir o modificador publico
+	public JButton btnUsuarios;
+	public JButton btnRelatorio;
+	public JPanel panelUsuario;
+	public JLabel lblUsuario;
 
 	/**
 	 * Launch the application.
@@ -118,25 +125,32 @@ DateFormat.getDateInstance(DateFormat.FULL);
 		btnProdutos.setBounds(162, 24, 128, 128);
 		contentPane.add(btnProdutos);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaption);
-		panel.setBounds(0, 348, 582, 52);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		panelUsuario = new JPanel();
+		panelUsuario.setBackground(SystemColor.activeCaption);
+		panelUsuario.setBounds(0, 335, 582, 65);
+		contentPane.add(panelUsuario);
+		panelUsuario.setLayout(null);
 		
 		lblData = new JLabel("");
 		lblData.setForeground(SystemColor.window);
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblData.setBounds(290, 11, 271, 29);
-		panel.add(lblData);
+		panelUsuario.add(lblData);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setBounds(311, 12, 0, 0);
-		panel.add(lblNewLabel_4);
+		panelUsuario.add(lblNewLabel_4);
 		lblNewLabel_4.setForeground(SystemColor.desktop);
 		lblNewLabel_4.setBackground(SystemColor.textHighlight);
 		
-		JButton btnUsuarios = new JButton("");
+		lblUsuario = new JLabel("");
+		lblUsuario.setForeground(Color.ORANGE);
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblUsuario.setBounds(10, 12, 314, 14);
+		panelUsuario.add(lblUsuario);
+		
+		btnUsuarios = new JButton("");
+		btnUsuarios.setEnabled(false);
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Link para JDialog
@@ -174,7 +188,8 @@ DateFormat.getDateInstance(DateFormat.FULL);
 		btnFerramenta.setBounds(286, 196, 128, 128);
 		contentPane.add(btnFerramenta);
 		
-		JButton btnRelatorio = new JButton("");
+		btnRelatorio = new JButton("");
+		btnRelatorio.setEnabled(false);
 		btnRelatorio.setIcon(new ImageIcon(Principal.class.getResource("/img/relatorio.png")));
 		btnRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

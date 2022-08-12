@@ -40,25 +40,25 @@ public class Sobre extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Sobre.class.getResource("/img/pdv.png")));
 		setModal(true);
 		setTitle("Sobre");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 495, 309);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Lojinha - Ver 1.0");
-		lblNewLabel.setBounds(24, 22, 102, 14);
+		lblNewLabel.setBounds(24, 22, 137, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("@Author Jo\u00E3o Vitor");
-		lblNewLabel_1.setBounds(24, 66, 102, 14);
+		lblNewLabel_1.setBounds(24, 66, 137, 14);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Sob Licen\u00E7a MIT");
-		lblNewLabel_2.setBounds(198, 180, 87, 14);
+		lblNewLabel_2.setBounds(190, 187, 118, 14);
 		getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon(Sobre.class.getResource("/img/mitLicense.png")));
 		lblNewLabel_3.setToolTipText("MIT");
-		lblNewLabel_3.setBounds(129, 163, 48, 48);
+		lblNewLabel_3.setBounds(113, 167, 48, 48);
 		getContentPane().add(lblNewLabel_3);
 
 	}
