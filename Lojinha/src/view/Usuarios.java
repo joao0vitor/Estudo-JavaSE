@@ -87,7 +87,16 @@ public class Usuarios extends JDialog {
 		btnAlterar.setEnabled(false);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AtualizarUsuarios();
+				
+				
+				if (chkSenha.isSelected()) {
+					alterarUsuarioSenha();
+				}
+				
+				else {
+					AtualizarUsuarios();
+				}
+				
 			}
 		});
 		btnAlterar.setContentAreaFilled(false);
@@ -200,13 +209,13 @@ public class Usuarios extends JDialog {
 		chkSenha.setVisible(false);
 		chkSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtUsuSenha.setBackground(Color.ORANGE);
+				txtUsuSenha.setBackground(Color.WHITE);
 				txtUsuSenha.setText(null);
 				txtUsuSenha.requestFocus();
 				txtUsuSenha.setEditable(true);
 			}
 		});
-		chkSenha.setBounds(363, 147, 113, 23);
+		chkSenha.setBounds(332, 149, 113, 23);
 		getContentPane().add(chkSenha);
 		ValidarSenha.setLimit(255);
 
@@ -257,12 +266,13 @@ public class Usuarios extends JDialog {
 					txtUsuSenha.setEditable(true);
 					btnAlterar.setEnabled(true);
 					btnExcluir.setEnabled(true);
+					chkSenha.setVisible(true);
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário inexistente");
-					txtUsuLogin.setEditable(false);
+					//txtUsuLogin.setEditable(false);
 					txtUsuNome.setEditable(true);
-					cboUsuPerfil.setEditable(true);
+					cboUsuPerfil.setEnabled(true);
 					txtUsuSenha.setEditable(true);
 					txtUsuNome.requestFocus();
 					btnAdicionar.setEnabled(true);
@@ -333,7 +343,6 @@ public class Usuarios extends JDialog {
 
 	private void AtualizarUsuarios() {
 
-		String capturaSenha = new String(txtUsuSenha.getPassword());
 
 		// Validação
 		if (txtUsuNome.getText().isEmpty()) {
@@ -399,7 +408,7 @@ public class Usuarios extends JDialog {
 			txtUsuSenha.requestFocus();
 		} else {
 			// logica principal
-			String update2 = "update usuarios set usuario=?, login=?,senha=md5(?), perfil=? where idusu=?";
+			String update2 = "update usuarios set usuario=?, login=?,senha=md5(?), perfil=? where iduser=?";
 			try {
 				// Estabelecer a conexão
 				Connection con = dao.conectar();
