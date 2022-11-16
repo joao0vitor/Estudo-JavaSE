@@ -11,10 +11,12 @@ use lhlcell;
 create table usuarios (
 	iduser int primary key auto_increment,
     usuario varchar(255) not null,
-    login varchar(255) not null unique,
+    login varchar(15) not null unique,
     senha varchar(255) not null,
     perfil varchar(255) not null
 );
+
+
 
 describe usuarios;
 
@@ -55,11 +57,24 @@ uf varchar(255) not null,
 obs varchar(255)
 );
 
-insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
-values ('76.256.914/0001-80', 'Assitência técnica', 'Lux Perifericos','11941527538','04890-055','Rua Alfredo Roller','229','Jardim Roschel','São Paulo','SP');
+update fornecedores set razao = 'Lucas Vitor santos', fantasia = 'Loja de eletronicos',fone = '11941527472' where idfor = 2;
 
 insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
-values ('87.267.933/0001-28', 'Acessorios Smatphone', 'Caps Smart','119951272536','02841-090','Rua Bartolomeu Rodrigues','972','Parque São Luís','São Paulo','SP');
+values ('76.256.914/0001-80', 'Lucas Pedro', 'Assitência técnica','11941527538','04890-055','Rua Alfredo Roller','229','Jardim Roschel','São Paulo','SP');
+
+insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
+values ('76.256.914/0004-80', 'Lucas Vitor santos', 'Loja de eletronicos','11941527472','04890-025','Rua Alfredo Ro','29','Jardim Rosc','São Paulo','SP');
+
+insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
+values ('84.267.933/0001-28', 'Jefferson matheus', 'Acessorios Smatphone','119951272536','02841-090','Rua Bartolomeu Rodrigues','972','Parque São Luís','São Paulo','SP');
+
+insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
+values ('85.267.933/0003-28', 'Tiago luiz', 'Acessorios para caixa de Som','119951272536','02841-090','Rua Barto Rodri','97','Parque São','São Paulo','SP');
+
+insert into fornecedores (cnpj, razao, fantasia,fone, cep, endereco, numero, bairro, cidade, uf)
+values ('81.267.933/0003-28', 'Thiago Vieira', 'Acessorios para caixa de Som','119951272536','02841-090','Rua Barto Rodri','97','Parque São','São Paulo','SP');
+
+delete from fornecedores where idfor = 1;
 
 -- verificar pedidos junto com o nome do fornecedor (relatorio simplificado)
 -- %H:%i exibir também o horário formatado
@@ -175,6 +190,13 @@ values ('Lica', '1198674-5312', '063.534.368-15','não');
 
 insert into clientes (nome, fone, cpf, marketing, email)
 values ('Naine', '1199543-7715','679.563.308-07','sim', 'naine@gmail.com');
+
+insert into clientes (nome, fone, cpf, email, marketing, cep, endereco, numero, complemento, bairro, cidade, uf)
+values ('Pamela', '1199754-8815','680.463.208-04','pamela@gmail.com','sim', '084900500', 'Praça da República', '1600', 'Casa', 'República', 'São Paulo', 'SP');
+
+insert into clientes (nome, fone, cpf, email, marketing, cep, endereco, numero, complemento, bairro, cidade, uf)
+values ('Patricia', '1198754-2215','610.453.208-03','patricia@gmail.com','sim', '79002290', 'Praça Vinho', '800', 'Apt 2 BL 4', 'Centro', 'São Paulo', 'SP');
+
 
 -- ====CRUD READ CLIENT=======
 select * from clientes;
